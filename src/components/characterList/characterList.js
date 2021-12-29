@@ -1,15 +1,15 @@
 import React, {useEffect} from "react";
 
-export default function CharactersList(props){
+export default function CharacterList(props){
 
     useEffect( () => {
         console.log('json recebido')
-        console.log(props.jsonCharactersList)
-    }, [props.jsonCharactersList]);
+        console.log(props.jsonCharacterList)
+    }, [props.jsonCharacterList]);
 
     return(
         <>
-        {props.jsonCharactersList.data.data.results.map( (character) => (
+        {props.jsonCharacterList.data.data.results.map( (character) => (
             <div className="character" key={character.id}>{character.name}</div>
         ))}
         </>

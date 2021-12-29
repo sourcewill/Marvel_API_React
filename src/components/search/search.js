@@ -9,7 +9,7 @@ export default function Search(props) {
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         let responseCharacter = await APIMarvelService.getCharactersByNameStartsWith(text);
-        props.setJsonCharactersList(responseCharacter)
+        props.setJsonCharacterList(responseCharacter)
     }
 
     return (
