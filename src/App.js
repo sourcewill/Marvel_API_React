@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import APIMarvelService from './services/APIMarvelService';
 
-function App() {
+import Character from './components/character/character'
+import Search from './components/search/search'
+import CharactersList from './components/charactersList/charactersList';
+
+export default function App() {
+
+  const [jsonCharactersList, setJsonCharactersList] = useState(null);
+  const [jsonCharacter, setJsonCharacter] = useState(null);
+
+  useEffect( () => {
+    async function fetchData(){
+      let responseCharacters = await APIMarvelService.getCharacters();
+      setJsonCharactersList(responseCharacters);
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log('atualizou')
+    console.log(jsonCharactersList);
+  }, [jsonCharactersList])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Search setJsonCharactersList={setJsonCharactersList}/>
+    {(jsonCharactersList !== null) && <CharactersList jsonCharactersList={jsonCharactersList} setJsonCharacter={setJsonCharacter}/> }
+    {(jsonCharacter !== null) && <Character jsonCharacter={jsonCharacter}/> }
     </div>
   );
 }
-
-export default App;
