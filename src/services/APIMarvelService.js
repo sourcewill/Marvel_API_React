@@ -11,8 +11,12 @@ class APIMarvelService{
         return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH);
     }
 
-    getCharactersByNameStartsWith(text){
-        return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH + '&nameStartsWith=' + text);
+    getCharactersByNameStartsWith(nameStartsWith){
+        return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH + '&nameStartsWith=' + nameStartsWith);
+    }
+
+    getComic(baseUrl){
+        return axios.get(baseUrl + '?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH);
     }
 
 }
