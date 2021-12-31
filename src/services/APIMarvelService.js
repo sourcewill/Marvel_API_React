@@ -1,4 +1,5 @@
 import axios from "axios";
+import Utils from "./utils";
 
 const API_BASE_URL = 'http://gateway.marvel.com/v1/public/'
 const TS = 'ts'
@@ -7,8 +8,9 @@ const HASH = '88029a7aee6a6b56602db382c26744e6'
 
 class APIMarvelService{
 
-    getCharacters(){
-        return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH + '&orderBy=modified&limit=100&offset=300');
+    getInitialCharacters(){
+        var randomOffset = Utils.randomIntFromInterval(1, 100)
+        return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH + '&orderBy=modified&limit=100&offset=' + randomOffset);
     }
 
     getCharactersByNameStartsWith(nameStartsWith){

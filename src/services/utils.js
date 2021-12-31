@@ -26,6 +26,15 @@ class Utils {
         return jsonFiltered;
     }
 
+    selectRandomCharacter(characterList){
+        var random = this.randomIntFromInterval(0, characterList.length-1)
+        return characterList[random]
+    }
+
+    randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
+
 }
 
 export default new Utils();

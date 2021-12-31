@@ -16,9 +16,10 @@ export default function App() {
 
   useEffect( () => {
     async function fetchData(){
-      let responseCharacters = await APIMarvelService.getCharacters();
+      let responseCharacters = await APIMarvelService.getInitialCharacters();
       let responseFiltered = Utils.filterJsonCharacterList(responseCharacters);
       setJsonCharacterList(responseFiltered);
+      setJsonCharacter(Utils.selectRandomCharacter(responseFiltered))
     }
     fetchData();
   }, []);
