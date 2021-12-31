@@ -1,14 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './character.css'
 import Utils from '../../services/utils';
 
 export default function Character({ jsonCharacter }) {
 
+  const [parallaxCoef, setParallaxCoef] = useState(20);
+
+  function handleMouseMove(evt){
+    var parallaxCoef = Math.round((evt.pageY - 350)/15) + 20;
+    setParallaxCoef(parallaxCoef)
+  }
+
   return (
     <div>
-      <section className='character' style={{
+      <section className='character' onMouseMove={(evt)=> handleMouseMove(evt)} style={{
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: `0% ${parallaxCoef}%`,
         backgroundImage: `url(${Utils.buildImgUrl(jsonCharacter.thumbnail.path, 'detail', jsonCharacter.thumbnail.extension)})`
       }}>
         <div className='character-vertical-gradient-top'>
