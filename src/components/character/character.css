@@ -1,0 +1,33 @@
+.character{
+    height: 300px;
+}
+
+.character-name{
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-bottom: 30px;
+}
+
+.character-description{
+    margin: 0 10%;
+    font-size: 17px;
+}
+
+.character-vertical-gradient-bottom{
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to top, #23303D, transparent 80%);
+}
+
+.character-vertical-gradient-top{
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to bottom, #23303D, transparent 100%);
+}
+
+.character-horizontal-gradient-left{
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to right, #23303D, transparent 50%);
+}

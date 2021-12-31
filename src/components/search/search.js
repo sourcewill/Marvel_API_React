@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './search.css'
+import Utils from '../../services/utils';
 import SearchIcon from '@material-ui/icons/Search';
 import APIMarvelService from '../../services/APIMarvelService';
 
@@ -9,8 +10,9 @@ export default function Search({setJsonCharacterList}) {
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        let responseCharacter = await APIMarvelService.getCharactersByNameStartsWith(text);
-        setJsonCharacterList(responseCharacter)
+        let responseCharacters = await APIMarvelService.getCharactersByNameStartsWith(text);
+        let responseFiltered = Utils.filterJsonCharacterList(responseCharacters);
+        setJsonCharacterList(responseFiltered)
     }
 
     return (

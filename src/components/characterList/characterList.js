@@ -13,7 +13,7 @@ export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
     });
 
     function handleClickCharacter(index) {
-        setJsonCharacter(jsonCharacterList.data.data.results[index])
+        setJsonCharacter(jsonCharacterList[index])
     }
 
     function handleClickRightButton() {
@@ -25,7 +25,7 @@ export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
     }
 
     function needNavigationButtons() {
-        let listWidth = jsonCharacterList.data.data.results.length * 150;
+        let listWidth = jsonCharacterList.length * 150;
         if (window.innerWidth < listWidth) {
             return true
         } else {
@@ -47,7 +47,9 @@ export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
                         </div>
                     </>
                 }
-                {jsonCharacterList.data.data.results.map((character, index) => (
+
+
+                {jsonCharacterList.map((character, index) => (
                     <div className="character-list-item" key={index} onClick={() => handleClickCharacter(index)}>
                         <img src={Utils.buildImgUrl(character.thumbnail.path, character.thumbnail.extension)} alt={character.name}></img>
                         <div className="character-list-item-name">{character.name}</div>

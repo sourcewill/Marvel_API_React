@@ -8,7 +8,7 @@ const HASH = '88029a7aee6a6b56602db382c26744e6'
 class APIMarvelService{
 
     getCharacters(){
-        return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH);
+        return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH + '&orderBy=modified&limit=100&offset=300');
     }
 
     getCharactersByNameStartsWith(nameStartsWith){
