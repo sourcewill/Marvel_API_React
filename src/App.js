@@ -48,7 +48,7 @@ export default function App() {
     <Search setJsonCharacterList={setJsonCharacterList}/>
     {(jsonCharacterList !== null) && <CharacterList jsonCharacterList={jsonCharacterList} setJsonCharacter={setJsonCharacter}/> }
     {(jsonCharacter !== null) && <Character jsonCharacter={jsonCharacter}/> }
-    {(jsonComicList !== null) && <ComicList jsonComicList={jsonComicList}/> }
+    {(jsonComicList !== null) && <ComicList jsonComicList={jsonComicList} jsonCharacter={jsonCharacter}/> }
     </div>
   );
 }
