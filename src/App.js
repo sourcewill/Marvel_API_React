@@ -19,31 +19,33 @@ export default function App() {
       let responseCharacters = await APIMarvelService.getInitialCharacters();
       let responseFiltered = Utils.filterJsonCharacterList(responseCharacters);
       setJsonCharacterList(responseFiltered);
-      setJsonCharacter(Utils.selectRandomCharacter(responseFiltered))
+      setJsonCharacter(Utils.selectRandomCharacter(responseFiltered));
     }
     fetchData();
   }, []);
 
   useEffect(() => {
-    console.log('json character list updated')
+    console.log('json character list updated');
     console.log(jsonCharacterList);
-  }, [jsonCharacterList])
+  }, [jsonCharacterList]);
 
   useEffect(() => {
     async function fetchData(){
-      console.log('json character updated')
+      console.log('json character updated');
       console.log(jsonCharacter);
       if(jsonCharacter !== null){
-        setJsonComicList(await Utils.getComicListByCharacter(jsonCharacter))
+        let comicList = await Utils.getComicListByCharacter(jsonCharacter);
+        let filteredComicList = Utils.filterComicList(comicList);
+        setJsonComicList(filteredComicList);
       }
     }
     fetchData();
   }, [jsonCharacter]);
 
   useEffect(() => {
-    console.log('json comic list updated')
+    console.log('json comic list updated');
     console.log(jsonComicList);
-  }, [jsonComicList])
+  }, [jsonComicList]);
 
   return (
     <div className="App">

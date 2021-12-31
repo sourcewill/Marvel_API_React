@@ -3,6 +3,7 @@ import './characterList.css'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Utils from "../../services/utils";
+import {isMobile} from 'react-device-detect';
 
 export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
 
@@ -25,11 +26,14 @@ export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
     }
 
     function needNavigationButtons() {
+        if(isMobile){
+            return false;
+        }
         let listWidth = jsonCharacterList.length * 150;
         if (window.innerWidth < listWidth) {
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
     }
 
@@ -51,7 +55,7 @@ export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
 
                 {jsonCharacterList.map((character, index) => (
                     <div className="character-list-item" key={index} onClick={() => handleClickCharacter(index)}>
-                        <img src={Utils.buildImgUrl(character.thumbnail.path, character.thumbnail.extension)} alt={character.name}></img>
+                        <img src={Utils.buildImgUrl(character.thumbnail.path, 'standard_amazing', character.thumbnail.extension)} alt={character.name}></img>
                         <div className="character-list-item-name">{character.name}</div>
                     </div>
                 ))}

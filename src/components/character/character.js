@@ -9,7 +9,7 @@ export default function Character({ jsonCharacter }) {
       <section className='character' style={{
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundImage: `url(${Utils.buildImgUrl(jsonCharacter.thumbnail.path, jsonCharacter.thumbnail.extension)})`
+        backgroundImage: `url(${Utils.buildImgUrl(jsonCharacter.thumbnail.path, 'detail', jsonCharacter.thumbnail.extension)})`
       }}>
         <div className='character-vertical-gradient-top'>
           <div className='character-vertical-gradient-bottom'>

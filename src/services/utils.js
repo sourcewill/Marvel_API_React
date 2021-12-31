@@ -2,8 +2,12 @@ import APIMarvelService from "./APIMarvelService";
 
 class Utils {
 
-    buildImgUrl(path, extension) {
-        return path + '/detail.' + extension;
+    /* Img variants (more info https://developer.marvel.com/documentation/images)
+    standard_amazing = 180x180px
+    detail = full image, constrained to 500px wide
+    */
+    buildImgUrl(path, variant, extension) {
+        return path + '/' + variant + '.' + extension;
     }
 
     async getComicListByCharacter(jasonCharacter) {
@@ -26,14 +30,21 @@ class Utils {
         return jsonFiltered;
     }
 
-    selectRandomCharacter(characterList){
-        var random = this.randomIntFromInterval(0, characterList.length-1)
+    filterComicList(comicList){
+        const filteredComicList = comicList.filter((comic) => {
+            return (!comic.data.data.results[0].thumbnail.path.includes('image_not_available'));
+        });
+        return filteredComicList;
+    }
+
+    selectRandomCharacter(characterList) {
+        var random = this.randomIntFromInterval(0, characterList.length - 1)
         return characterList[random]
     }
 
     randomIntFromInterval(min, max) { // min and max included 
         return Math.floor(Math.random() * (max - min + 1) + min)
-      }
+    }
 
 }
 

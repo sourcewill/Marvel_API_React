@@ -3,6 +3,7 @@ import './comicList.css'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Utils from "../../services/utils";
+import {isMobile} from 'react-device-detect';
 
 export default function ComicList({ jsonComicList, jsonCharacter }) {
 
@@ -25,6 +26,9 @@ export default function ComicList({ jsonComicList, jsonCharacter }) {
     }
 
     function needNavigationButtons() {
+        if(isMobile){
+            return false;
+        }
         let listWidth = jsonComicList.length * 150;
         if (window.innerWidth < listWidth) {
             return true
@@ -49,7 +53,7 @@ export default function ComicList({ jsonComicList, jsonCharacter }) {
                 }
                 {jsonComicList.map((comic, index) => (
                     <div className="comic-list-item" key={index} onClick={() => handleClickComic(index)}>
-                        <img src={Utils.buildImgUrl(comic.data.data.results[0].thumbnail.path, comic.data.data.results[0].thumbnail.extension)} alt={comic.data.data.results[0].title}></img>
+                        <img src={Utils.buildImgUrl(comic.data.data.results[0].thumbnail.path, 'standard_amazing', comic.data.data.results[0].thumbnail.extension)} alt={comic.data.data.results[0].title}></img>
                         <div className="comic-list-item-name">{comic.data.data.results[0].title}</div>
                     </div>
                 ))}
