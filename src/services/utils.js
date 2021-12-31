@@ -30,6 +30,7 @@ class Utils {
         return jsonFiltered;
     }
 
+    // Remove Comics without thumbnail
     filterComicList(comicList){
         const filteredComicList = comicList.filter((comic) => {
             return (!comic.data.data.results[0].thumbnail.path.includes('image_not_available'));

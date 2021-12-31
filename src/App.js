@@ -6,7 +6,10 @@ import Utils from './services/utils';
 import Search from './components/search/search'
 import CharacterList from './components/characterList/characterList';
 import Character from './components/character/character'
+import CharacterGraph from './components/characterGraph/characterGraph';
+import CharacterNetwork from './components/characterGraph/characterNetwork';
 import ComicList from './components/comicList/comicList';
+
 
 export default function App() {
 
@@ -14,12 +17,12 @@ export default function App() {
   const [jsonCharacter, setJsonCharacter] = useState(null);
   const [jsonComicList, setJsonComicList] = useState(null);
 
-  useEffect( () => {
-    async function fetchData(){
+  useEffect(() => {
+    async function fetchData() {
       let responseCharacters = await APIMarvelService.getInitialCharacters();
       let responseFiltered = Utils.filterJsonCharacterList(responseCharacters);
       setJsonCharacterList(responseFiltered);
-      setJsonCharacter(Utils.selectRandomCharacter(responseFiltered));
+      //setJsonCharacter(Utils.selectRandomCharacter(responseFiltered));
     }
     fetchData();
   }, []);
@@ -30,10 +33,10 @@ export default function App() {
   }, [jsonCharacterList]);
 
   useEffect(() => {
-    async function fetchData(){
+    async function fetchData() {
       console.log('json character updated');
       console.log(jsonCharacter);
-      if(jsonCharacter !== null){
+      if (jsonCharacter !== null) {
         let comicList = await Utils.getComicListByCharacter(jsonCharacter);
         let filteredComicList = Utils.filterComicList(comicList);
         setJsonComicList(filteredComicList);
@@ -49,10 +52,11 @@ export default function App() {
 
   return (
     <div className="App">
-    <Search setJsonCharacterList={setJsonCharacterList}/>
-    {(jsonCharacterList !== null) && <CharacterList jsonCharacterList={jsonCharacterList} setJsonCharacter={setJsonCharacter}/> }
-    {(jsonCharacter !== null) && <Character jsonCharacter={jsonCharacter}/> }
-    {(jsonComicList !== null) && <ComicList jsonComicList={jsonComicList} jsonCharacter={jsonCharacter}/> }
+      <Search setJsonCharacterList={setJsonCharacterList} />
+      {(jsonCharacterList !== null) && <CharacterList jsonCharacterList={jsonCharacterList} setJsonCharacter={setJsonCharacter} />}
+      {(jsonCharacter !== null) && <Character jsonCharacter={jsonCharacter} />}
+      {(jsonCharacter !== null) && (jsonComicList !== null) && <CharacterNetwork jsonCharacter={jsonCharacter} jsonComicList={jsonComicList} />}
+      {(jsonComicList !== null) && <ComicList jsonComicList={jsonComicList} jsonCharacter={jsonCharacter} />}
     </div>
   );
 }
