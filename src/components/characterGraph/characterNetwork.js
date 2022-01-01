@@ -1,29 +1,30 @@
 import React, { useEffect, useRef } from 'react';
 import { Network } from 'vis-network/standalone/esm/vis-network';
 import './characterNetwork.css'
+import Utils from '../../services/utils';
 
 export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
 
-    const limitNodes = 9;
+    const limitNodes = 8;
     const domNode = useRef(null);
     const network = useRef(null);
     const options = {
         edges: {
-            color: 'white',
+            color: '#FFFFFF',
             smooth: {
                 type: "continuous",
             }
         },
         nodes: {
             shape: "box",
-            color: "#007BFF",
+            color: "#FFB500",
             size: 20,
             borderWidth: 1,
-            shadow: true,
+            shadow: { color: "#151517" },
             font: {
                 size: 16,
                 align: "center",
-                color: "white",
+                color: "#000110",
             }
         },
         interaction: {
@@ -34,7 +35,7 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
     };
 
     useEffect(() => {
-        network.current = new Network(domNode.current, {nodes: [], edges: []}, options);
+        network.current = new Network(domNode.current, { nodes: [], edges: [] }, options);
     }, []);
 
     useEffect(() => {
@@ -63,14 +64,22 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
             if (i >= limitNodes) {
                 break;
             }
-            var node = {
-                id: i,
-                label: characterNamesList[i],
-                color: "#FFB500",
-                font: { color: "#000110" },
-                shadow: { color: "#151517" },
-                shape: "box"
-            };
+            var node = {}
+            if (i === 0) {
+                node = {
+                    id: i,
+                    size: 40,
+                    color: '#FFFFFF',
+                    borderWidth: 5,
+                    shape: "circularImage",
+                    image: Utils.buildImgUrl(jsonCharacter.thumbnail.path, 'detail', jsonCharacter.thumbnail.extension)
+                };
+            } else {
+                node = {
+                    id: i,
+                    label: characterNamesList[i],
+                };
+            }
             nodes.push(node);
         }
         return (nodes);
@@ -84,7 +93,7 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
                 break;
             }
             //Skip first node (avoiding self loop)
-            if (i < 1) {
+            if (i === 0) {
                 continue;
             }
             var edge = {
@@ -97,13 +106,13 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
     }
 
     return (
-        <>
-            <h2>{jsonCharacter.name} Interactions</h2>
-            <div ref={domNode} className='character-network'
+        <div className='character-network'>
+            <h2>Network Interactions</h2>
+            <div ref={domNode}
                 style={{
                     width: "100%",
                     height: "300px"
                 }} />
-        </>
+        </div>
     );
 }

@@ -1,5 +1,5 @@
 .character{
-    height: 300px;
+    height: 280px;
 }
 
 .character-name{
@@ -17,7 +17,7 @@
 .character-vertical-gradient-bottom{
     width: inherit;
     height: inherit;
-    background: linear-gradient(to top, #23303D, transparent 80%);
+    background: linear-gradient(to top, #23303D 0%, transparent 80%);
 }
 
 .character-vertical-gradient-top{
