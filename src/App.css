@@ -2,15 +2,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-  text-align: center;
-  background-color: #23303D;
-  color: white;
   margin: 0px;
   padding: 0px;
   border: 0;
+  text-align: center;
   font-family: 'Roboto', sans-serif;
+  color: white;
+  background-color: #16212c;
 }
 
 *{
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
+
+.bg-character{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-blur{
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px) saturate(50%) contrast(150%);
+}
+
+.character-vertical-gradient-bottom{
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to top, #16212c 0%, transparent 80%);
+}
+
+.character-vertical-gradient-top{
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to bottom, #16212c, transparent 100%);
+}
+
+.character-horizontal-gradient-left{
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to right, #16212c, transparent 50%);
+}

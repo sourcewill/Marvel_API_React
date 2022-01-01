@@ -1,0 +1,8 @@
+.characters{
+    user-select: none;
+    margin-top: 20px;
+}
+
+.characters h2{
+    text-align: center;
+}

@@ -36,8 +36,8 @@ input:focus, textarea:focus, select:focus{
 }
 
 .search-button:hover{
-    background: rgba(255, 255, 255, 0.3);
-    color: #FFB500;
+    background: rgba(255, 255, 255, 0.1);
+    color: #0DCAF0;
 }
 
 @media (max-width:760px) {

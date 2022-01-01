@@ -1,0 +1,12 @@
+.comics{
+    position: relative;
+    top: 0px;
+    user-select: none;
+}
+
+.comics h2{
+    margin: 0;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    text-align: initial;
+}

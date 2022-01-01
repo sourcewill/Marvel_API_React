@@ -9,7 +9,7 @@ const HASH = '88029a7aee6a6b56602db382c26744e6'
 class APIMarvelService{
 
     getInitialCharacters(){
-        var randomOffset = Utils.randomIntFromInterval(1, 100)
+        var randomOffset = Utils.randomIntFromInterval(1, 20)
         return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH + '&orderBy=modified&limit=100&offset=' + randomOffset);
     }
 

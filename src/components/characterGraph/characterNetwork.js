@@ -5,7 +5,7 @@ import Utils from '../../services/utils';
 
 export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
 
-    const limitNodes = 8;
+    const limitNodes = 9;
     const domNode = useRef(null);
     const network = useRef(null);
     const options = {
@@ -108,7 +108,7 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
 
     return (
         <div className='character-network'>
-            <h2>Network Interactions</h2>
+            <h2>Network Conections</h2>
             <div ref={domNode}
                 style={{
                     width: "100%",

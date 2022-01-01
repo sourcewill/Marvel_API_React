@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import './list.css'
 import './characterList.css'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -11,7 +12,7 @@ export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
 
     useEffect(() => {
         refCharacterList.current.scrollTo(0, 0);
-    });
+    }, [jsonCharacterList]);
 
     function handleClickCharacter(index) {
         setJsonCharacter(jsonCharacterList[index])
@@ -40,7 +41,7 @@ export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
     return (
         <section className='characters'>
             <h2>Marvel Characters</h2>
-            <div className='character-list' ref={refCharacterList}>
+            <div className='list' ref={refCharacterList}>
                 {needNavigationButtons() &&
                     <>
                         <div className='left-navigate-button' onClick={handleClickLeftButton}>
@@ -54,9 +55,9 @@ export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
 
 
                 {jsonCharacterList.map((character, index) => (
-                    <div className="character-list-item" key={index} onClick={() => handleClickCharacter(index)}>
+                    <div className="list-item" key={index} onClick={() => handleClickCharacter(index)}>
                         <img src={Utils.buildImgUrl(character.thumbnail.path, 'standard_amazing', character.thumbnail.extension)} alt={character.name}></img>
-                        <div className="character-list-item-name">{character.name}</div>
+                        <div className="list-item-name">{character.name}</div>
                     </div>
                 ))}
             </div>

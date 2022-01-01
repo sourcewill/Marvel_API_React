@@ -1,5 +1,12 @@
 .character{
-    height: 300px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+.bg-blur{
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px) saturate(50%) contrast(150%);
 }
 
 .character-name{
@@ -14,20 +21,3 @@
     font-size: 17px;
 }
 
-.character-vertical-gradient-bottom{
-    width: inherit;
-    height: inherit;
-    background: linear-gradient(to top, #23303D 0%, transparent 80%);
-}
-
-.character-vertical-gradient-top{
-    width: inherit;
-    height: inherit;
-    background: linear-gradient(to bottom, #23303D, transparent 100%);
-}
-
-.character-horizontal-gradient-left{
-    width: inherit;
-    height: inherit;
-    background: linear-gradient(to right, #23303D, transparent 50%);
-}
