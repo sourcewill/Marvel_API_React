@@ -2,18 +2,11 @@ import React, {useState} from 'react';
 import './character.css'
 import Utils from '../../services/utils';
 
-export default function Character({ jsonCharacter }) {
-
-  const [parallaxCoef, setParallaxCoef] = useState(20);
-
-  function handleMouseMove(evt){
-    var parallaxCoef = Math.round((evt.pageY - 350)/15) + 20;
-    setParallaxCoef(parallaxCoef)
-  }
+export default function Character({ jsonCharacter, parallaxCoef }) {
 
   return (
     <div>
-      <section className='character' onMouseMove={(evt)=> handleMouseMove(evt)} style={{
+      <section className='character' style={{
         backgroundSize: 'cover',
         backgroundPosition: `0% ${parallaxCoef}%`,
         backgroundImage: `url(${Utils.buildImgUrl(jsonCharacter.thumbnail.path, 'detail', jsonCharacter.thumbnail.extension)})`

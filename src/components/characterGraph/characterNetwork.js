@@ -30,7 +30,7 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
         interaction: {
             hover: true,
             zoomView: false,
-            dragView: true
+            dragView: false
         }
     };
 
@@ -69,6 +69,7 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
                 node = {
                     id: i,
                     size: 40,
+                    fixed: true,
                     color: '#FFFFFF',
                     borderWidth: 5,
                     shape: "circularImage",

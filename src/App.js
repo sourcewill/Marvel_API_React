@@ -15,6 +15,7 @@ export default function App() {
   const [jsonCharacterList, setJsonCharacterList] = useState(null);
   const [jsonCharacter, setJsonCharacter] = useState(null);
   const [jsonComicList, setJsonComicList] = useState(null);
+  const [parallaxCoef, setParallaxCoef] = useState(20);
 
   useEffect(() => {
     async function fetchData() {
@@ -22,6 +23,7 @@ export default function App() {
       let responseFiltered = Utils.filterJsonCharacterList(responseCharacters);
       setJsonCharacterList(responseFiltered);
       //setJsonCharacter(Utils.selectRandomCharacter(responseFiltered));
+      window.addEventListener("scroll", handleScroll);
     }
     fetchData();
   }, []);
@@ -49,11 +51,17 @@ export default function App() {
     console.log(jsonComicList);
   }, [jsonComicList]);
 
+  function handleScroll(){
+    var parallaxCoef = Math.round((window.pageYOffset/10)+20);
+    setParallaxCoef(parallaxCoef);
+    console.log(parallaxCoef);
+  }
+
   return (
     <div className="App">
       <Search setJsonCharacterList={setJsonCharacterList} />
       {(jsonCharacterList !== null) && <CharacterList jsonCharacterList={jsonCharacterList} setJsonCharacter={setJsonCharacter} />}
-      {(jsonCharacter !== null) && <Character jsonCharacter={jsonCharacter} />}
+      {(jsonCharacter !== null) && <Character jsonCharacter={jsonCharacter} parallaxCoef={parallaxCoef}/>}
       {(jsonCharacter !== null) && (jsonComicList !== null) && <CharacterNetwork jsonCharacter={jsonCharacter} jsonComicList={jsonComicList} />}
       {(jsonComicList !== null) && <ComicList jsonComicList={jsonComicList} jsonCharacter={jsonCharacter} />}
     </div>
