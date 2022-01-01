@@ -6,7 +6,6 @@ import Utils from './services/utils';
 import Search from './components/search/search'
 import CharacterList from './components/characterList/characterList';
 import Character from './components/character/character'
-import CharacterGraph from './components/characterGraph/characterGraph';
 import CharacterNetwork from './components/characterGraph/characterNetwork';
 import ComicList from './components/comicList/comicList';
 

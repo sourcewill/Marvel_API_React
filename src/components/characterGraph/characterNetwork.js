@@ -1,21 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { DataSet, Network } from 'vis-network/standalone/esm/vis-network';
+import React, { useEffect, useRef } from 'react';
+import { Network } from 'vis-network/standalone/esm/vis-network';
+import './characterNetwork.css'
 
 export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
 
-    const [characterNamesList, setCharacterNamesList] = useState(getCharacterNamesList());
-
-    // A reference to the div rendered by this component
+    const limitNodes = 9;
     const domNode = useRef(null);
-
-    // A reference to the vis network instance
     const network = useRef(null);
-
-    const [networkData, setNetworkData] = useState({
-        nodes: getGraphNodes(),
-        edges: getGraphEdges()
-    });
-
     const options = {
         edges: {
             color: 'white',
@@ -42,20 +33,16 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
         }
     };
 
-    const graphStyle = {
-        width: "100%", height: "300px"
-    };
-
     useEffect(() => {
-        network.current = new Network(domNode.current, networkData, options);
+        network.current = new Network(domNode.current, {nodes: [], edges: []}, options);
     }, []);
 
     useEffect(() => {
-        setNetworkData({
-            nodes: getGraphNodes(),
-            edges: getGraphEdges()
+        let characterNamesList = getCharacterNamesList();
+        network.current.setData({
+            nodes: getNetworkNodes(characterNamesList),
+            edges: getNetworkEdges(characterNamesList)
         });
-        network.current.setData(networkData);
     }, [jsonComicList]);
 
     function getCharacterNamesList() {
@@ -69,9 +56,13 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
         return Array.from(nameSet)
     }
 
-    function getGraphNodes() {
+    function getNetworkNodes(characterNamesList) {
         let nodes = [];
         for (var i in characterNamesList) {
+            i = parseInt(i)
+            if (i >= limitNodes) {
+                break;
+            }
             var node = {
                 id: i,
                 label: characterNamesList[i],
@@ -82,16 +73,19 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
             };
             nodes.push(node);
         }
-        console.log('NODES');
-        console.log(nodes);
-        return new DataSet(nodes);
+        return (nodes);
     }
 
-    function getGraphEdges() {
+    function getNetworkEdges(characterNamesList) {
         let edges = [];
         for (var i in characterNamesList) {
-            if (i === 0) {
-                continue; //Skip first node (avoiding self loop)
+            i = parseInt(i)
+            if (i >= limitNodes) {
+                break;
+            }
+            //Skip first node (avoiding self loop)
+            if (i < 1) {
+                continue;
             }
             var edge = {
                 from: i,
@@ -99,12 +93,17 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList }) {
             };
             edges.push(edge);
         }
-        console.log('EDGES');
-        console.log(edges);
-        return new DataSet(edges);
+        return (edges);
     }
 
     return (
-        <div ref={domNode} />
+        <>
+            <h2>{jsonCharacter.name} Interactions</h2>
+            <div ref={domNode} className='character-network'
+                style={{
+                    width: "100%",
+                    height: "300px"
+                }} />
+        </>
     );
 }
