@@ -3,6 +3,7 @@ import './App.css';
 import APIMarvelService from './services/APIMarvelService';
 import Utils from './services/utils';
 
+import Header from './components/header/header';
 import Search from './components/search/search'
 import CharacterList from './components/lists/characterList';
 import Character from './components/character/character'
@@ -60,11 +61,11 @@ export default function App() {
       parallaxCoef = 100;
     }
     setParallaxCoef(parallaxCoef);
-    console.log(parallaxCoef);
   }
 
   return (
     <div className="App">
+      <Header/>
       <Search setJsonCharacterList={setJsonCharacterList} />
       {(jsonCharacterList !== null) && <CharacterList jsonCharacterList={jsonCharacterList} setJsonCharacter={setJsonCharacter} />}
       {(jsonCharacter !== null) && <div className='bg-character' style={{

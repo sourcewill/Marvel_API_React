@@ -1,4 +1,5 @@
 .character{
+    user-select: none;
     margin-top: 15px;
     margin-bottom: 50px;
 }
