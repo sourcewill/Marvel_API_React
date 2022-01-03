@@ -3,6 +3,7 @@ import './App.css';
 import APIMarvelService from './services/APIMarvelService';
 import Utils from './services/utils';
 
+import Welcome from './components/welcome/welcome';
 import Header from './components/header/header';
 import Search from './components/search/search'
 import CharacterList from './components/lists/characterList';
@@ -68,6 +69,7 @@ export default function App() {
       <Header />
       <Search setJsonCharacterList={setJsonCharacterList} />
       {(jsonCharacterList !== null) && <CharacterList jsonCharacterList={jsonCharacterList} setJsonCharacter={setJsonCharacter} />}
+      {(jsonCharacter === null) && <Welcome/>}
       {(jsonCharacter !== null) && <div className='bg-character' style={{
         backgroundPosition: `0% ${parallaxCoef}%`,
         backgroundImage: `url(${Utils.buildImgUrl(jsonCharacter.thumbnail.path, 'detail', jsonCharacter.thumbnail.extension)})`

@@ -1,6 +1,6 @@
 .comics{
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     user-select: none;
 }
 
@@ -9,4 +9,20 @@
     padding-bottom: 10px;
     padding-left: 30px;
     text-align: initial;
+}
+
+
+.comic-list-item-name{
+    text-align: center;
+    font-size: 15px;
+    width: 140px;
+    height: 80px;
+    opacity: 0;
+    padding-top: 0px;
+    padding-left: 0px;
+    transition: all ease 0.3s;
+}
+
+.list-item:hover .comic-list-item-name{
+    opacity: 1;
 }

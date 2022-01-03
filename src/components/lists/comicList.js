@@ -56,7 +56,7 @@ export default function ComicList({ jsonComicList, jsonCharacter }) {
                 {jsonComicList.map((comic, index) => (
                     <div className="list-item" key={index} onClick={() => handleClickComic(comic.data.data.results[0].urls[0].url)}>
                         <img src={Utils.buildImgUrl(comic.data.data.results[0].thumbnail.path, 'standard_amazing', comic.data.data.results[0].thumbnail.extension)} alt={comic.data.data.results[0].title}></img>
-                        <div className="list-item-name">{comic.data.data.results[0].title}</div>
+                        <div className="comic-list-item-name">{comic.data.data.results[0].title}</div>
                     </div>
                 ))}
             </div>

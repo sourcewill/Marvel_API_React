@@ -1,0 +1,14 @@
+p{
+    padding: 0 10% 0 10%;
+}
+
+.welcome{
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.welcome-description{
+    max-width: 900px;
+}
