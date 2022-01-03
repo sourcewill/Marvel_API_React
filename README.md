@@ -1,7 +1,7 @@
 # Marvel Network Quantzed
-Esta é uma aplicação desenvolvida por William Rodrigues em um processo seletivo para Quantzed utilizando React e dados fornecidos pela API Marvel.
+Esta é uma aplicação desenvolvida por William Rodrigues em um processo seletivo para Quantzed utilizando [React](https://pt-br.reactjs.org/) e dados fornecidos pela API Marvel.
 
-## Demonstação
+## Demonstração
 Busca e seleção de personagens:
 
 ![img busca](https://i.ibb.co/7Q1Ntg2/print01.png)
@@ -33,7 +33,8 @@ npm start
 
 ## Outras Informações
 
+- Marvel API
+<https://developer.marvel.com/>
+
 - Paleta de cores utilizada
-[Marvel Palette](https://coolors.co/202020-151515-ec1d24-e62429-9f0013)
-
-
+[Coolors: Marvel Palette](https://coolors.co/202020-151515-ec1d24-e62429-9f0013)
