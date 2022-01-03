@@ -4,15 +4,15 @@ Esta é uma aplicação desenvolvida por William Rodrigues em um processo seleti
 ## Demonstação
 Busca e seleção de personagens:
 
-![alt text](https://i.ibb.co/Qj6JrhN/print01.png)
+![img busca](https://i.ibb.co/7Q1Ntg2/print01.png)
 
 Informações sobre cada personagem e uma rede de conexões interativa:
 
-![alt text](https://i.ibb.co/YZMgBdh/print02.png)
+![img personagem](https://i.ibb.co/JvK6Vk7/print02.png)
 
 Listagem dos quadrinhos do personagem:
 
-![alt text](https://i.ibb.co/9918gG3/print03.png)
+![img quadrinhos](https://i.ibb.co/YpjDTqQ/print03.png)
 
 ## Requisitos
 - npm
