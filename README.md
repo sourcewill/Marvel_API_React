@@ -12,7 +12,7 @@ Informações sobre cada personagem e uma rede de conexões interativa:
 
 Listagem dos quadrinhos do personagem:
 
-![img quadrinhos](https://i.ibb.co/YpjDTqQ/print03.png)
+![img quadrinhos](https://i.ibb.co/236w249/print03.png)
 
 ## Requisitos
 - npm
