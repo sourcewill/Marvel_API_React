@@ -1,4 +1,7 @@
 .character{
+    display: grid;
+    justify-items: center;
+    justify-content: center;
     user-select: none;
     margin-top: 15px;
     margin-bottom: 50px;
@@ -20,5 +23,6 @@
 .character-description{
     margin: 0 10%;
     font-size: 17px;
+    max-width: 1000px;
 }
 

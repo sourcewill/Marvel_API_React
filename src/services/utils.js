@@ -19,13 +19,12 @@ class Utils {
         return jsonComicList;
     }
 
-    // Remove Characters without description or comics or thumbnail
+    // Remove Characters without comics or thumbnail
     filterJsonCharacterList(jsonCharacterList) {
         const jsonFiltered = jsonCharacterList.data.data.results.filter((character) => {
-            return (character.description !== ''
-                && character.description.length > 10
-                && character.comics.items.length > 0
-                && (!character.thumbnail.path.includes('image_not_available')))
+            return (character.comics.items.length > 0
+                && (!character.thumbnail.path.includes('image_not_available'))
+                && (character.thumbnail.extension !== 'gif'))
         });
         return jsonFiltered;
     }
@@ -33,7 +32,8 @@ class Utils {
     // Remove Comics without thumbnail
     filterComicList(comicList){
         const filteredComicList = comicList.filter((comic) => {
-            return (!comic.data.data.results[0].thumbnail.path.includes('image_not_available'));
+            return (!comic.data.data.results[0].thumbnail.path.includes('image_not_available')
+            && (comic.data.data.results[0].thumbnail.extension !== 'gif'));
         });
         return filteredComicList;
     }
@@ -45,6 +45,15 @@ class Utils {
 
     randomIntFromInterval(min, max) { // min and max included 
         return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    // Filter list removing repeated items by key()
+    uniqueBy(list, key) {
+        let seen = new Set();
+        return list.filter(item => {
+            let k = key(item);
+            return seen.has(k) ? false : seen.add(k);
+        });
     }
 
 }

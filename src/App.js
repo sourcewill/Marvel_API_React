@@ -9,7 +9,7 @@ import CharacterList from './components/lists/characterList';
 import Character from './components/character/character'
 import CharacterNetwork from './components/characterGraph/characterNetwork';
 import ComicList from './components/lists/comicList';
-
+import Footer from './components/footer/footer';
 
 export default function App() {
 
@@ -54,10 +54,10 @@ export default function App() {
 
   function handleScroll() {
     var parallaxCoef = Math.round((window.pageYOffset / 5) + 20);
-    if(parallaxCoef < 20){
+    if (parallaxCoef < 20) {
       parallaxCoef = 20;
     }
-    if(parallaxCoef > 100){
+    if (parallaxCoef > 100) {
       parallaxCoef = 100;
     }
     setParallaxCoef(parallaxCoef);
@@ -65,7 +65,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <Search setJsonCharacterList={setJsonCharacterList} />
       {(jsonCharacterList !== null) && <CharacterList jsonCharacterList={jsonCharacterList} setJsonCharacter={setJsonCharacter} />}
       {(jsonCharacter !== null) && <div className='bg-character' style={{
@@ -76,13 +76,15 @@ export default function App() {
           <div className='character-vertical-gradient-top'>
             <div className='character-vertical-gradient-bottom'>
               <div className='character-horizontal-gradient-left'></div>
+
               <Character jsonCharacter={jsonCharacter} />
-              {(jsonCharacter !== null) && (jsonComicList !== null) && <CharacterNetwork jsonCharacter={jsonCharacter} jsonComicList={jsonComicList} />}
+              {(jsonCharacter !== null) && (jsonComicList !== null) && <CharacterNetwork jsonCharacter={jsonCharacter} jsonComicList={jsonComicList} setJsonCharacter={setJsonCharacter}/>}
             </div>
           </div>
         </div>
       </div>}
       {(jsonComicList !== null) && <ComicList jsonComicList={jsonComicList} jsonCharacter={jsonCharacter} />}
+      <Footer />
     </div>
   );
 }
