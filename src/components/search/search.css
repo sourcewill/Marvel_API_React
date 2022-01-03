@@ -27,7 +27,7 @@ input:focus, textarea:focus, select:focus{
     width: 100px;
     border-style:none;
     border-radius: 0px 5px 5px 0px;
-    background: #23303D;
+    background: #E62429;
     color: white;
     justify-content: center;
     align-items: center;
@@ -37,7 +37,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 .search-button:hover{
-    color: #0DCAF0;
+    background: #9F0013;
 }
 
 @media (max-width:760px) {

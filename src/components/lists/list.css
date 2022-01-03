@@ -63,7 +63,8 @@
     position: absolute;
     width: 40px;
     height: 150px;
-    background-color: rgba(13, 26, 41, 0.5);
+    background-color: rgba(20, 20, 20, 0.9);
+    color: #E62429;
     z-index: 10;
     display: flex;
     align-items: center;
@@ -84,13 +85,13 @@
 }
 
 .left-navigate-button:hover, .right-navigate-button:hover{
-    background-color: rgba(13, 26, 41, 0.8);
+    background-color: rgba(20, 20, 20, 0.9);
 }
 
 .left-navigate-button:hover .left-icon, .right-navigate-button:hover .right-icon{
     transform: scale(1.1);
     opacity: 1;
-    color: #0DCAF0;
+    color: white;
 }
 
 .right-navigate-button{

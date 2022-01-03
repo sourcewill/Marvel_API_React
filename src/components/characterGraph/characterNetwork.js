@@ -12,20 +12,21 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList, setJson
     const networkOptions = {
         edges: {
             color: '#FFFFFF',
+            width: 2,
             smooth: {
                 type: "continuous",
             }
         },
         nodes: {
             shape: "box",
-            color: "#FFB500",
+            color: "#E62429",
             size: 20,
             borderWidth: 1,
             shadow: { color: "#151517" },
             font: {
                 size: 16,
                 align: "center",
-                color: "#000110",
+                color: "#FFFFFF",
             }
         },
         interaction: {
@@ -50,19 +51,18 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList, setJson
                 handleClickCharacter(event.nodes[0])
             }
         });
-        network.current.on('hoverNode', function(event){
+        network.current.on('hoverNode', function (event) {
             document.getElementsByTagName('canvas')[0].style.cursor = 'pointer';
         });
-        network.current.on('blurNode', function(event){
+        network.current.on('blurNode', function (event) {
             document.getElementsByTagName('canvas')[0].style.cursor = 'default';
         });
-        network.current.on('dragStart', function(event){
+        network.current.on('dragStart', function (event) {
             document.getElementsByTagName('canvas')[0].style.cursor = 'grabbing';
         });
-        network.current.on('dragEnd', function(event){
+        network.current.on('dragEnd', function (event) {
             document.getElementsByTagName('canvas')[0].style.cursor = 'grab';
         });
-
     }, []);
 
     useEffect(() => {
@@ -143,7 +143,7 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList, setJson
                 style={{
                     width: "100%",
                     height: "300px"
-                }} />
+                }}/>
         </div>
     );
 }

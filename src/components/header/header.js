@@ -6,7 +6,7 @@ export default function Header() {
         <header>
             <div className="header-logo">
                 <a href="/">
-                    <img src="https://storage.googleapis.com/qtz-files/home/img/nev_bar.svg" alt="Logo" />
+                    <img src="https://logosmarcas.net/wp-content/uploads/2020/11/Marvel-Logo-2012-2014.png" alt="Logo" />
                 </a>
             </div>
         </header>

@@ -12,10 +12,10 @@ header{
     padding: 0 30px;
     background: transparent;
     transition: all ease 0.5s;
-    background-color: #23303D;
+    background-color: #202020;
 }
 .header-logo{
-    height: 40px;
+    height: 50px;
 }
 
 .header-logo img{
