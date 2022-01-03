@@ -4,7 +4,7 @@ import './characterList.css'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Utils from "../../services/utils";
-import {isMobile} from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 
 export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
 
@@ -27,7 +27,7 @@ export default function CharacterList({ jsonCharacterList, setJsonCharacter }) {
     }
 
     function needNavigationButtons() {
-        if(isMobile){
+        if (isMobile) {
             return false;
         }
         let listWidth = jsonCharacterList.length * 150;

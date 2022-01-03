@@ -6,22 +6,22 @@ const TS = 'ts'
 const PUBLIC_KEY = 'd332c1e3c77dc91517ae2eac5ba1659a'
 const HASH = '88029a7aee6a6b56602db382c26744e6'
 
-class APIMarvelService{
+class APIMarvelService {
 
-    getInitialCharacters(){
+    getInitialCharacters() {
         var randomOffset = Utils.randomIntFromInterval(1, 20)
         return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH + '&orderBy=modified&limit=100&offset=' + randomOffset);
     }
 
-    getCharactersByNameStartsWith(nameStartsWith){
+    getCharactersByNameStartsWith(nameStartsWith) {
         return axios.get(API_BASE_URL + 'characters?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH + '&nameStartsWith=' + nameStartsWith);
     }
 
-    getCharacterByAPIUrl(APIUrl){
+    getCharacterByAPIUrl(APIUrl) {
         return axios.get(APIUrl + '?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH);
     }
 
-    getComic(baseUrl){
+    getComic(baseUrl) {
         return axios.get(baseUrl + '?ts=' + TS + '&apikey=' + PUBLIC_KEY + '&hash=' + HASH);
     }
 

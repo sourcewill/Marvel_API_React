@@ -22,7 +22,7 @@ class Utils {
     // Remove Characters without comics or thumbnail
     filterJsonCharacterList(jsonCharacterList) {
         const jsonFiltered = jsonCharacterList.data.data.results.filter((character) => {
-            return (character.comics.items.length > 0
+            return (character.comics.items.length > 2
                 && (!character.thumbnail.path.includes('image_not_available'))
                 && (character.thumbnail.extension !== 'gif'))
         });
@@ -30,10 +30,10 @@ class Utils {
     }
 
     // Remove Comics without thumbnail
-    filterComicList(comicList){
+    filterComicList(comicList) {
         const filteredComicList = comicList.filter((comic) => {
             return (!comic.data.data.results[0].thumbnail.path.includes('image_not_available')
-            && (comic.data.data.results[0].thumbnail.extension !== 'gif'));
+                && (comic.data.data.results[0].thumbnail.extension !== 'gif'));
         });
         return filteredComicList;
     }

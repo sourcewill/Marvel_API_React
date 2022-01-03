@@ -39,7 +39,6 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList, setJson
     async function handleClickCharacter(characterId) {
         let responseCharacter = await APIMarvelService.getCharacterByAPIUrl(characterId);
         setJsonCharacter(responseCharacter.data.data.results[0]);
-        console.log(responseCharacter)
     }
 
     useEffect(() => {
@@ -143,7 +142,7 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList, setJson
                 style={{
                     width: "100%",
                     height: "300px"
-                }}/>
+                }} />
         </div>
     );
 }

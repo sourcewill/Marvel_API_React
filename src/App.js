@@ -31,14 +31,14 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    console.log('json character list updated');
-    console.log(jsonCharacterList);
+    //console.log('json character list updated');
+    //console.log(jsonCharacterList);
   }, [jsonCharacterList]);
 
   useEffect(() => {
     async function fetchData() {
-      console.log('json character updated');
-      console.log(jsonCharacter);
+      //console.log('json character updated');
+      //console.log(jsonCharacter);
       if (jsonCharacter !== null) {
         let comicList = await Utils.getComicListByCharacter(jsonCharacter);
         let filteredComicList = Utils.filterComicList(comicList);
@@ -49,8 +49,8 @@ export default function App() {
   }, [jsonCharacter]);
 
   useEffect(() => {
-    console.log('json comic list updated');
-    console.log(jsonComicList);
+    //console.log('json comic list updated');
+    //console.log(jsonComicList);
   }, [jsonComicList]);
 
   function handleScroll() {
@@ -69,7 +69,7 @@ export default function App() {
       <Header />
       <Search setJsonCharacterList={setJsonCharacterList} />
       {(jsonCharacterList !== null) && <CharacterList jsonCharacterList={jsonCharacterList} setJsonCharacter={setJsonCharacter} />}
-      {(jsonCharacter === null) && <Welcome/>}
+      {(jsonCharacter === null) && <Welcome />}
       {(jsonCharacter !== null) && <div className='bg-character' style={{
         backgroundPosition: `0% ${parallaxCoef}%`,
         backgroundImage: `url(${Utils.buildImgUrl(jsonCharacter.thumbnail.path, 'detail', jsonCharacter.thumbnail.extension)})`
@@ -80,7 +80,7 @@ export default function App() {
               <div className='character-horizontal-gradient-left'></div>
 
               <Character jsonCharacter={jsonCharacter} />
-              {(jsonCharacter !== null) && (jsonComicList !== null) && <CharacterNetwork jsonCharacter={jsonCharacter} jsonComicList={jsonComicList} setJsonCharacter={setJsonCharacter}/>}
+              {(jsonCharacter !== null) && (jsonComicList !== null) && <CharacterNetwork jsonCharacter={jsonCharacter} jsonComicList={jsonComicList} setJsonCharacter={setJsonCharacter} />}
             </div>
           </div>
         </div>

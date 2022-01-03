@@ -4,7 +4,7 @@ import './comicList.css'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Utils from "../../services/utils";
-import {isMobile} from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 
 export default function ComicList({ jsonComicList, jsonCharacter }) {
 
@@ -16,7 +16,7 @@ export default function ComicList({ jsonComicList, jsonCharacter }) {
 
     function handleClickComic(url) {
         window.open(url);
-        
+
     }
 
     function handleClickRightButton() {
@@ -28,7 +28,7 @@ export default function ComicList({ jsonComicList, jsonCharacter }) {
     }
 
     function needNavigationButtons() {
-        if(isMobile){
+        if (isMobile) {
             return false;
         }
         let listWidth = jsonComicList.length * 150;
