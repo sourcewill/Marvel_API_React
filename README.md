@@ -2,11 +2,16 @@
 Esta é uma aplicação desenvolvida por William Rodrigues em um processo seletivo para Quantzed utilizando React e dados fornecidos pela API Marvel.
 
 ## Demonstação
-- Busca e seleção de personagens:
+Busca e seleção de personagens:
+
 ![alt text](https://i.ibb.co/Qj6JrhN/print01.png)
-- Informações sobre cada personagem e uma rede de conexões interativa:
+
+Informações sobre cada personagem e uma rede de conexões interativa:
+
 ![alt text](https://i.ibb.co/YZMgBdh/print02.png)
-- Listagem dos quadrinhos do personagem:
+
+Listagem dos quadrinhos do personagem:
+
 ![alt text](https://i.ibb.co/9918gG3/print03.png)
 
 ## Requisitos
