@@ -23,6 +23,10 @@ No diretório do repositório, execute utilizando o comando:
 npm start
 ```
 
+## Produção
+* [x] Deploy Vercel
+<https://marvelnetwork.vercel.app/>
+
 ## Funcionalidades
 
 - Busca e seleção de personagens do universo Marvel.
