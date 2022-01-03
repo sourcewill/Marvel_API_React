@@ -31,4 +31,9 @@ npm start
 - A rede é interativa, ou seja, permite que cada nó representado possa ser selecionado. Uma vez selecionado, o sistema atualiza as informações para o personagem selecionado.
 - Listagem dos quadrinhos de cada personagem.
 
+## Outras Informações
+
+- Paleta de cores utilizada
+[Marvel Palette](https://coolors.co/202020-151515-ec1d24-e62429-9f0013)
+
 
