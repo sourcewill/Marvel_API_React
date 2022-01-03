@@ -13,7 +13,7 @@ class Utils {
     async getComicListByCharacter(jasonCharacter) {
         let jsonComicList = [];
         for (var i in jasonCharacter.comics.items) {
-            let jsonComic = await APIMarvelService.getComic(jasonCharacter.comics.items[i].resourceURI);
+            let jsonComic = await APIMarvelService.getResponseByAPIUrl(jasonCharacter.comics.items[i].resourceURI);
             jsonComicList.push(jsonComic);
         }
         return jsonComicList;
