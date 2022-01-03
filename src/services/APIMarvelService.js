@@ -1,7 +1,7 @@
 import axios from "axios";
 import Utils from "./utils";
 
-const API_BASE_URL = 'http://gateway.marvel.com/v1/public/'
+const API_BASE_URL = 'https://gateway.marvel.com/v1/public/'
 const TS = 'ts'
 const PUBLIC_KEY = 'd332c1e3c77dc91517ae2eac5ba1659a'
 const HASH = '88029a7aee6a6b56602db382c26744e6'
