@@ -14,8 +14,9 @@ export default function ComicList({ jsonComicList, jsonCharacter }) {
         refComicList.current.scrollTo(0, 0);
     });
 
-    function handleClickComic(index) {
-
+    function handleClickComic(url) {
+        window.open(url);
+        
     }
 
     function handleClickRightButton() {
@@ -53,7 +54,7 @@ export default function ComicList({ jsonComicList, jsonCharacter }) {
                     </>
                 }
                 {jsonComicList.map((comic, index) => (
-                    <div className="list-item" key={index} onClick={() => handleClickComic(index)}>
+                    <div className="list-item" key={index} onClick={() => handleClickComic(comic.data.data.results[0].urls[0].url)}>
                         <img src={Utils.buildImgUrl(comic.data.data.results[0].thumbnail.path, 'standard_amazing', comic.data.data.results[0].thumbnail.extension)} alt={comic.data.data.results[0].title}></img>
                         <div className="list-item-name">{comic.data.data.results[0].title}</div>
                     </div>
