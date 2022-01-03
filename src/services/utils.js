@@ -56,6 +56,10 @@ class Utils {
         });
     }
 
+    urlHttpToHttps(url){
+        return url.replace(/^http:\/\//i, 'https://');
+    }
+
 }
 
 export default new Utils();

@@ -37,7 +37,7 @@ export default function CharacterNetwork({ jsonCharacter, jsonComicList, setJson
     };
 
     async function handleClickCharacter(characterId) {
-        let responseCharacter = await APIMarvelService.getCharacterByAPIUrl(characterId);
+        let responseCharacter = await APIMarvelService.getResponseByAPIUrl(characterId);
         setJsonCharacter(responseCharacter.data.data.results[0]);
     }
 
